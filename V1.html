@@ -17,7 +17,7 @@
 
 <div class="head">
     <div class="container">
-        <a href="https://www.baidu.com" class="logoBox"><img src="./V1/BUPT.png" alt="" class="floatL logopng"></a>
+        <a href="https://www.baidu.com" class="logoBox"><img src="./V1/images/BUPT.png" alt="" class="floatL logopng"></a>
         <div class="webNav floatR">
             <ul>
                 <li class="index">
@@ -44,7 +44,7 @@
         <div class="featureTit">日常生活</div>
         <div class="featureTitSmall">各种资讯&nbsp;&nbsp;应有尽有</div>
         <div class="indexImgBox">
-            <img class="indexBg" src="./V1/Title.jpg" alt="">
+            <img class="indexBg" src="./V1/images/Title.jpg" alt="">
         </div>
         <div class="featureBox leftBox first">
             <div class="titBox">
@@ -93,11 +93,11 @@
                 <div class="intrBox leftImg active">
                     <div class="container">
                         <div class="intrImgBox">
-                            <img class="introduceImg versionScan" src="./V1/Cloudy.jpeg" alt="天气预报 晴雨无惧">
+                            <img class="introduceImg versionScan" src="./V1/images/Cloudy.jpeg" alt="天气预报 晴雨无惧">
                         </div>
                         <div class="msgWrapper">
                             <div class="msgBox">
-                                <div class="intrHead"><img class="intrIcon" src="./V1/weathericon.jpg"
+                                <div class="intrHead"><img class="intrIcon" src="./V1/images/weathericon.jpg"
                                     alt="">天气</div>
                                 <div class="intrMsg">春季回南天较多,细雨绵绵,湿度大<br>夏季天气炎热,偶尔受台风边缘影响会出现大到暴雨秋季<br>秋季前期依然炎热难耐,中后期空气较干燥,体感舒适<br>冬季湿冷,持续时间短</div>
                                 <div class="intrTrait">
@@ -111,12 +111,12 @@
                 <div class="intrBox protectBox active">
                     <div class="container">
                         <div class="intrImgBox" id="Accommodation">
-                            <img class="introduceImg" src="./V1/hotelIntro.jpg" alt="防护中心 Protection center">
+                            <img class="introduceImg" src="./V1/images/hotelIntro.jpg" alt="防护中心 Protection center">
                         </div>
                         <div class="msgWrapper">
                             <div class="msgBox">
                                 <div class="intrHead">
-                                    <img class="intrIcon" src="./V1/hotel.jpg" alt="酒店">住宿</div>
+                                    <img class="intrIcon" src="./V1/images/hotel.jpg" alt="酒店">住宿</div>
 
                                 <div class="intrMsg"><a>作为省会城市，南宁住宿十分便利</a></div>
                                 <div class="intrTrait">
@@ -132,11 +132,11 @@
                 <div class="intrBox leftImg active">
                     <div class="container">
                         <div class="intrImgBox" id="Restaurant">
-                            <img class="introduceImg accessControl" src="./V1/Rice.jpg" alt="">
+                            <img class="introduceImg accessControl" src="./V1/images/Rice.jpg" alt="">
                         </div>
                         <div class="msgWrapper">
                             <div class="msgBox">
-                                <div class="intrHead"><img class="intrIcon" src="./V1/Resticon.jpg" alt="">食府</div>
+                                <div class="intrHead"><img class="intrIcon" src="./V1/images/Resticon.jpg" alt="">食府</div>
 
                                 <div class="intrMsg"><a>南宁是吃货的天堂</a></div>
                                 <div class="intrTrait">
@@ -152,11 +152,11 @@
                 <div class="intrBox active">
                     <div class="container">
                         <div class="intrImgBox" id="Entertainment">
-                            <img class="introduceImg" src="./V1/Mountainpic.jpg" alt="">
+                            <img class="introduceImg" src="./V1/images/Mountainpic.jpg" alt="">
                         </div>
                         <div class="msgWrapper">
                             <div class="msgBox">
-                                <div class="intrHead"><img class="intrIcon" src="./V1/Mountain.jpg" alt="">玩乐</div>
+                                <div class="intrHead"><img class="intrIcon" src="./V1/images/Mountain.jpg" alt="">玩乐</div>
                                 <div class="intrMsg"><a>风景名胜，5A景区，南宁是专业的</a></div>
                                 <div class="intrTrait">
                                     <p>青秀山</p>
@@ -176,50 +176,8 @@
     </div>
 </div>
 <script type="text/javascript">
-
-        setSwiper: function(){
-            var windowW = $(window).width();
-            var swiperJson = common.swiperJson;
-            if(1200 > windowW){
-                delete common.swiperJson.slidesPerView;
-                delete common.swiperJson.spaceBetween;
-            }
-            videoSwiperPerson = new Swiper('#videoSwiper', $.extend({},swiperJson, {
-                slidesPerView: 3,
-                // slidesPerView : 'auto',
-                breakpoints: { //响应布局设置
-                    120: {
-                        spaceBetween: 10,
-                    },
-                    1100: {//如果屏幕宽度小于<1100
-                        slidesPerView: 2
-                    },
-                    767: {
-                        slidesPerView: 1
-                    }
-                }
-            }));
-            return this;
-        },
-        setIntrBoxSwiper: function(){
-            var windowW = $(window).width();
-            var swiperJson = common.swiperJson;
-            if(768 > windowW){
-                $('.introduce .intrBox').addClass('active');
-                $('#intrBoxWrapper').addClass('swiper-container').append('<div class="pagination intrBoxP"></div>').find('.intrBoxWrapper').addClass('swiper-wrapper').find('.intrBox').addClass('swiper-slide');
-                var intrBoxObj = $.extend({}, common.swiperJson, { "autoplay":false,"pagination": ".intrBoxP" ,"autoHeight":true});
-                if(common.isIE){
-                    delete intrBoxObj['autoHeight'];
-                    $('#intrBoxWrapper').css('height','6.5rem');
-                }
-                intrBoxTimer = new Swiper('#intrBoxWrapper', intrBoxObj);
-                common.swiperBtn('#intrBoxWrapper',intrBoxTimer);
-            }else{
-                $('#intrBoxWrapper').removeClass('swiper-container').remove('.pagination').find('.intrBoxWrapper').removeClass('swiper-wrapper').find('.intrBox').removeClass('swiper-slide');
-            }
-        }
-    }
 </script>
 
 
-</body><!-- 统计代码 --></html>
+</body>
+</html>
