@@ -176,47 +176,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(function () {
-        $.ajax({
-            //请求方式
-            type:'GET',
-            //发送请求的地址以及传输的数据
-            url:'5.0.version.json',
-            //服务器返回的数据类型
-            dataType:'json',
-            success:function(data){
-                if(data.createtime){
-                    var createtime = data.createtime.split(' ')[0];
-                }else{
-                    var createtime = data.virustime;
-                }
-                var htmls= "最新版本："+data.version+" &nbsp;|&nbsp;"+createtime+"更新&nbsp;|&nbsp;"+data.filesize;
-                $("#installMsgs").html(htmls);
-            },
-        });
-        var scrollTimer = null;
-        var videoSwiperPerson = null;
-        var intrBoxTimer = null;
-        person5.init();
-// 新加 js
-        $(document).on('click', '.videoViewEntry', function () {
-            $('.videoViewSwitch').click()
-        })
-    });
-    var person5 = {
-        init: function(){
-            this.setSwiper()
-                .setIntrBoxSwiper();
-            // 鼠标划入video 轮播暂停
-            common.videoBoxScrollToggle('#videoSwiper',videoSwiperPerson);
-            // 鼠标滚动到某位置 触发动画
-            window.onscroll = function(){
-                // 产品特点 文字动效
-                common.setIntroduceAnime('.feature .featureMsg', 1,1100,10);
-                // 产品功能 文字动效
-                common.setIntroduceAnime('.introduce .intrBox', 4,1700,650);
-            };
-        },
+
         setSwiper: function(){
             var windowW = $(window).width();
             var swiperJson = common.swiperJson;
